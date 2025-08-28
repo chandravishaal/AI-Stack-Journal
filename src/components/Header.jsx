@@ -7,7 +7,9 @@ export default function Header() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
 
     if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
       document.documentElement.classList.add("dark");
@@ -31,20 +33,37 @@ export default function Header() {
   };
 
   return (
-    <header className="shadow-md sticky top-0 z-50 transition-colors duration-300 backdrop-blur-sm bg-white/70 dark:bg-gray-900/70">
+    <header className="shadow-sm sticky top-0 z-50 transition-colors duration-300 backdrop-blur-sm 
+                   bg-white/70 dark:bg-black/70 dark:from-black/70 dark:via-slate-950/40 dark:to-gray-900/90 dark:bg-gradient-to-r">
+
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-indigo-500">
-          <Link to="/">AI Stack Journal</Link>
+        <h1 className="text-2xl font-bold text-gray-900 dark:text-yellow-400 drop-shadow-md">
+          {" "}
+          <Link
+            to="/"
+            className="hover:text-yellow-500 transition-colors duration-200"
+          >
+            AI Stack Journal
+          </Link>
         </h1>
         <div className="flex items-center space-x-6">
           <nav className="space-x-6 hidden md:flex">
-            <Link to="/" className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition">
+            <Link
+              to="/"
+              className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition"
+            >
               Home
             </Link>
-            <Link to="/blog" className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition">
+            <Link
+              to="/blog"
+              className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition"
+            >
               Blog
             </Link>
-            <Link to="/about" className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition">
+            <Link
+              to="/about"
+              className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition"
+            >
               About
             </Link>
           </nav>

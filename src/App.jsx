@@ -18,7 +18,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import HomePage from "./pages/Home";
 import BlogPage from "./pages/BlogPage";
-import AppRoutes from "./routes/AppRoutes";
+import AppRoutes from "./Routes/AppRoutes";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {

@@ -1,23 +1,57 @@
+// src/pages/HomePage.jsx
 import Hero from "../components/Hero";
-import BlogCard from "../components/BlogCard";
+import FeatureStrip from "../components/FeatureStrip";
+import MosaicGrid from "../components/MosaicGrid";
+import PremiumCTA from "../components/PremiumCTA";
+import LatestPostsStrip from "../components/LatestPostsStrip";
 import blogPosts from "../data/blogPosts";
 
 export default function HomePage() {
+  // sample content for feature strip & mosaic
+  const features = [
+    {
+      title: "Authoritative Guides",
+      description: "In-depth, researched guides on AI and modern web development.",
+      image: "https://source.unsplash.com/1200x800/?research,books",
+    },
+    {
+      title: "Practical Tutorials",
+      description: "Hands-on tutorials you can follow in your code editor.",
+      image: "https://source.unsplash.com/1200x800/?coding,tutorial",
+    },
+    {
+      title: "Industry Insights",
+      description: "Analysis and trend reports from the AI and developer communities.",
+      image: "https://source.unsplash.com/1200x800/?analytics,ai",
+    },
+  ];
+
+  const tiles = blogPosts.slice(0, 2).map((p) => ({
+    image: p.image,
+    title: p.title,
+    excerpt: p.excerpt,
+  }));
+
   return (
     <div className="transition-colors duration-500">
       <Hero />
 
-      {/* Featured Blogs Section - neutral background */}
-      <section className="max-w-7xl mx-auto px-6 py-16 bg-gray-100 dark:bg-gray-950 transition-colors duration-500">
-        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
-          Featured Blogs
-        </h2>
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {blogPosts.map((post) => (
-            <BlogCard key={post.id} post={post} />
-          ))}
-        </div>
-      </section>
+      {/* Feature strips (alternating) */}
+      <FeatureStrip items={features} />
+
+      {/* Mosaic grid */}
+      <MosaicGrid tiles={tiles} />
+
+      {/* Premium CTA */}
+      <PremiumCTA
+        headline="Build smarter with AI Stack Journal"
+        subtext="Subscribe for curated guides, tools, and deep technical articles — designed for developers and data scientists."
+        ctaText="Subscribe"
+        ctaTo="/subscribe"
+      />
+
+      {/* Latest posts */}
+      <LatestPostsStrip count={4} />
     </div>
   );
 }

@@ -1,13 +1,12 @@
 export default function Hero() {
   return (
-    <section className="relative bg-gray-950 text-center py-24">
+    <section className="relative bg-gray-100 dark:bg-gray-950 text-center py-24 transition-colors duration-300">
       <div className="max-w-4xl mx-auto px-6">
-        <h1 className="text-5xl font-extrabold text-white mb-6">
-          Welcome to <span className="text-indigo-400">MyBlog</span>
+        <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-6">
+          Welcome to <span className="text-indigo-500">AI Stack Journal</span>
         </h1>
-        <p className="text-lg text-gray-400 mb-8">
-          Discover stories, tutorials, and insights about modern web
-          development.
+        <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
+          Discover stories, tutorials, and insights about AI, web development, and modern technology.
         </p>
         <a
           href="/blog"

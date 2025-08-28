@@ -1,10 +1,23 @@
+import BlogCard from "../components/BlogCard";
 import Hero from "../components/Hero";
+import blogPosts from "../data/blogposts";
 
+ 
 export default function HomePage() {
   return (
-    <div>
+    <div className="bg-gray-100 dark:bg-gray-950 transition-colors duration-300">
       <Hero />
-      {/* Later we will add featured blogs here */}
+
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+          Featured Blogs
+        </h2>
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {blogPosts.map((post) => (
+            <BlogCard key={post.id} post={post} />
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

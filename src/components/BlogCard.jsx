@@ -1,11 +1,21 @@
+import { motion } from "framer-motion";
+
+const transition = { duration: 0.6, ease: "easeOut" };
+
 export default function BlogCard({ post }) {
   return (
-    <div className="bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300 cursor-pointer flex flex-col">
+    <motion.div
+      className="bg-white dark:bg-gray-900 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 cursor-pointer flex flex-col"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={transition}
+    >
       <div className="h-56 w-full overflow-hidden rounded-t-3xl">
         <img
           src={post.image}
           alt={post.title}
-          className="w-full h-full object-cover transform hover:scale-105 transition duration-500"
+          className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
         />
       </div>
 
@@ -22,6 +32,6 @@ export default function BlogCard({ post }) {
           <span>{post.date}</span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

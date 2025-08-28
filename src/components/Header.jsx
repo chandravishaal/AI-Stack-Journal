@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { SunIcon, MoonIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router-dom";
 
 export default function Header() {
   const [theme, setTheme] = useState("light");
@@ -30,14 +31,22 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow-md sticky top-0 z-50 transition-colors duration-300">
+    <header className="shadow-md sticky top-0 z-50 transition-colors duration-300 backdrop-blur-sm bg-white/70 dark:bg-gray-900/70">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-indigo-500">AI Stack Journal</h1>
+        <h1 className="text-2xl font-bold text-indigo-500">
+          <Link to="/">AI Stack Journal</Link>
+        </h1>
         <div className="flex items-center space-x-6">
           <nav className="space-x-6 hidden md:flex">
-            <a href="/" className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition">Home</a>
-            <a href="/blog" className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition">Blog</a>
-            <a href="/about" className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition">About</a>
+            <Link to="/" className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition">
+              Home
+            </Link>
+            <Link to="/blog" className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition">
+              Blog
+            </Link>
+            <Link to="/about" className="hover:text-indigo-500 text-gray-900 dark:text-gray-100 transition">
+              About
+            </Link>
           </nav>
           <button
             onClick={toggleTheme}

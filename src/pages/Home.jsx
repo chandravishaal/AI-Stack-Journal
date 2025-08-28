@@ -1,6 +1,6 @@
 import BlogCard from "../components/BlogCard";
 import Hero from "../components/Hero";
-import blogPosts from "../data/blogposts";
+import blogPosts from "../data/blogPosts";
 
  
 export default function HomePage() {

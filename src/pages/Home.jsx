@@ -8,23 +8,23 @@ import blogPosts from "../data/blogPosts";
 
 export default function HomePage() {
   // sample content for feature strip & mosaic
-  const features = [
-    {
-      title: "Authoritative Guides",
-      description: "In-depth, researched guides on AI and modern web development.",
-      image: "https://source.unsplash.com/1200x800/?research,books",
-    },
-    {
-      title: "Practical Tutorials",
-      description: "Hands-on tutorials you can follow in your code editor.",
-      image: "https://source.unsplash.com/1200x800/?coding,tutorial",
-    },
-    {
-      title: "Industry Insights",
-      description: "Analysis and trend reports from the AI and developer communities.",
-      image: "https://source.unsplash.com/1200x800/?analytics,ai",
-    },
-  ];
+    // const features = [
+    //   {
+    //     title: "Authoritative Guides",
+    //     description: "In-depth, researched guides on AI and modern web development.",
+    //     image: "https://source.unsplash.com/1200x800/?research,books",
+    //   },
+    //   {
+    //     title: "Practical Tutorials",
+    //     description: "Hands-on tutorials you can follow in your code editor.",
+    //     image: "https://source.unsplash.com/1200x800/?coding,tutorial",
+    //   },
+    //   {
+    //     title: "Industry Insights",
+    //     description: "Analysis and trend reports from the AI and developer communities.",
+    //     image: "https://source.unsplash.com/1200x800/?analytics,ai",
+    //   },
+    // ];
 
   const tiles = blogPosts.slice(0, 2).map((p) => ({
     image: p.image,
@@ -37,7 +37,7 @@ export default function HomePage() {
       <Hero />
 
       {/* Feature strips (alternating) */}
-      <FeatureStrip items={features} />
+      <FeatureStrip   />
 
       {/* Mosaic grid */}
       <MosaicGrid tiles={tiles} />

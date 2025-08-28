@@ -27,7 +27,7 @@ export default function PremiumCTA({
       <div className="relative z-10 text-center">
         <h2 className="text-3xl md:text-4xl font-extrabold text-white">{headline}</h2>
         <p className="text-white/90 mt-3 max-w-2xl mx-auto">{subtext}</p>
-        <div className="mt-6 flex justify-center gap-4">
+        <div className="mt-6 text-white flex justify-center gap-4">
           <CustomButton to={ctaTo}>{ctaText}</CustomButton>
           {featured && (
             <CustomButton to={`/blog/${featured.id}`} className="bg-transparent">

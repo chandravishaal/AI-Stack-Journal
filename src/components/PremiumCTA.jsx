@@ -3,44 +3,47 @@ import { motion } from "framer-motion";
 import CustomButton from "./CustomButton";
 import blogPosts from "../data/blogPosts";
 
-/**
- * PremiumCTA - CTA going to the blog listing (or you can set to a featured post)
- * Props: headline, subtext, ctaText, ctaTo
- */
 export default function PremiumCTA({
-  headline = "Join AI Stack Journal",
-  subtext = "Subscribe for curated guides and deep technical articles.",
-  ctaText = "Subscribe",
-  ctaTo = "/blog",
+  headline = "Level Up with Our Content",
+  subtext = "Unlock exclusive articles, detailed guides, and advanced insights delivered directly to your inbox.",
+  ctaText = "Get Started",
+  ctaTo = "/subscribe",
 }) {
   const totalPosts = blogPosts.length;
-  const featured = blogPosts[0];
 
   return (
     <motion.section
-      className="relative rounded-3xl mx-auto max-w-6xl px-6 py-12 my-8 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:from-gray-900 dark:via-gray-800 dark:to-gray-950 shadow-lg overflow-hidden"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
+      className="relative overflow-hidden rounded-3xl mx-auto max-w-6xl p-8 md:p-12 my-12 bg-gray-950 dark:bg-gray-800 text-white shadow-2xl"
+      initial={{ opacity: 0, scale: 0.95 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.7, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.5 }}
     >
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 md:w-96 md:h-96 rounded-full bg-gradient-to-r from-yellow-400 to-amber-500 blur-3xl opacity-30 animate-pulse" />
+
       <div className="relative z-10 text-center">
-        <h2 className="text-3xl md:text-4xl font-extrabold text-white">{headline}</h2>
-        <p className="text-white/90 mt-3 max-w-2xl mx-auto">{subtext}</p>
-        <div className="mt-6 text-white flex justify-center gap-4">
-          <CustomButton to={ctaTo}>{ctaText}</CustomButton>
-          {featured && (
-            <CustomButton to={`/blog/${featured.id}`} className="bg-transparent">
-              Featured
-            </CustomButton>
+        <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+          {headline}
+        </h2>
+        <p className="mt-4 max-w-2xl mx-auto text-base md:text-lg text-gray-400">
+          {subtext}
+        </p>
+
+        <div className="mt-8 flex justify-center items-center flex-col sm:flex-row gap-4">
+          <CustomButton
+            to={ctaTo}
+            className="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-gray-900 px-8 py-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-105"
+          >
+            {ctaText}
+          </CustomButton>
+
+          {totalPosts > 0 && (
+            <p className="text-gray-500 text-sm font-medium mt-2 sm:mt-0">
+              Trusted by {totalPosts} readers and counting.
+            </p>
           )}
-          <div className="flex items-center text-white/90 text-sm font-medium">
-            <span className="text-yellow-400 font-bold mr-2">{totalPosts}</span>
-            <span>articles published</span>
-          </div>
         </div>
       </div>
-      <div className="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none" />
     </motion.section>
   );
 }

@@ -2,7 +2,7 @@ import axios from "axios";
 
 //Create a reusable axios instance
 const api = axios.create({
-  baseURL: "http://localhost:5000/api", // ✅ set your API base URL once
+  baseURL: "https://ai-stack-journal-backend.onrender.com/api", // ✅ set your API base URL once
   timeout: 10000, // request timeout (best practice)
   headers: {
     "Content-Type": "application/json",
